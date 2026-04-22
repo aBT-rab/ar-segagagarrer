@@ -6,10 +6,11 @@
   <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
 </head>
-<body>
+<body style="margin:0; overflow:hidden;">
   <a-scene
-    mindar-image="imageTargetSrc: https://raw.githubusercontent.com/aBT-rab/ar-segagagarrer/main/targets.mind"
+    mindar-image="imageTargetSrc: https://raw.githubusercontent.com/aBT-rab/ar-segagagarrer/main/targets.mind; filterMinCF: 0.001; filterBeta: 0.001; missTolerance: 5; warmupTolerance: 5;"
     embedded
+    style="width:100vw; height:100vh; position:fixed; top:0; left:0;"
     color-space="sRGB"
     renderer="colorManagement: true"
     vr-mode-ui="enabled: false"
@@ -18,9 +19,7 @@
     <a-assets>
       <a-asset-item id="model" src="https://raw.githubusercontent.com/aBT-rab/ar-segagagarrer/main/mamasegareholo.glb"></a-asset-item>
     </a-assets>
-
     <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-
     <a-entity mindar-image-target="targetIndex: 0">
       <a-gltf-model
         src="#model"
